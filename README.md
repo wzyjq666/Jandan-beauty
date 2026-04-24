@@ -25,7 +25,8 @@
 
 ## 安装
 
-1. 下载 ZIP 解压
+1. 下载 ZIP 解压(不会下的看下图)
+<img width="1497" height="890" alt="image" src="https://github.com/user-attachments/assets/1a5b5b49-a134-4d8e-8100-c6c6f7988c92" />
 2. Chrome 打开 `chrome://extensions/`
 3. 开启「开发者模式」
 4. 点击「加载已解压的扩展程序」
