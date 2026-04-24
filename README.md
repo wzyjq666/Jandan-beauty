@@ -40,8 +40,4 @@ jandan-meme-style/
 ├── content.js     # 交互脚本
 ├── popup.html     # 设置面板
 └── icons/
-```
-### 请支持一下我们吧
-
-我们的博客网址： [56meme.com](https://56meme.com/) 
 
