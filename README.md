@@ -41,3 +41,6 @@ jandan-meme-style/
 ├── popup.html     # 设置面板
 └── icons/
 ```
+### 请支持一下我们吧
+我们的网址：56meme.com
+
