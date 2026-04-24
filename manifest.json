@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "煎蛋 Meme 风美化",
+  "version": "1.1.0",
+  "description": "将煎蛋网改造成 meme 社区风格 - 圆角卡片、底部操作栏、侧边栏优化",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": ["https://jandan.net/*", "https://www.jandan.net/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://jandan.net/*", "https://www.jandan.net/*"],
+      "css": ["content.css"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

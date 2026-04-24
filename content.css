@@ -1,0 +1,675 @@
+/* ============================================
+   煎蛋 Meme 风美化器
+   只美化 .comment-func，其他完全不动
+   ============================================ */
+
+:root {
+  --meme-bg: #f0f2f5;
+  --meme-card: #ffffff;
+  --meme-primary: #1a1a1a;
+  --meme-secondary: #666666;
+  --meme-tertiary: #999999;
+  --meme-border: #e8e8e8;
+  --meme-blue: #1890ff;
+  --meme-blue-light: #e6f7ff;
+  --meme-red: #ff4d4f;
+  --meme-red-light: #fff1f0;
+  --meme-green: #52c41a;
+  --meme-orange: #fa8c16;
+  --meme-purple: #722ed1;
+  --meme-pink: #eb2f96;
+  --meme-radius: 16px;
+  --meme-radius-sm: 12px;
+  --meme-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  --meme-shadow-hover: 0 8px 24px rgba(0,0,0,0.1);
+  --meme-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark-model, [data-theme="dark"] {
+  --meme-bg: #0f0f0f;
+  --meme-card: #1a1a1a;
+  --meme-primary: #f0f0f0;
+  --meme-secondary: #a0a0a0;
+  --meme-tertiary: #707070;
+  --meme-border: #2a2a2a;
+  --meme-shadow: 0 2px 8px rgba(255,255,255,0.04);
+  --meme-shadow-hover: 0 8px 24px rgba(255,255,255,0.08);
+}
+
+body {
+  background: var(--meme-bg) !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif !important;
+  color: var(--meme-primary) !important;
+}
+
+/* ============================================
+   顶部 Header - 不变
+   ============================================ */
+#header {
+  background: var(--meme-card) !important;
+  border-bottom: 1px solid var(--meme-border) !important;
+  box-shadow: var(--meme-shadow) !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  padding: 10px 0 !important;
+}
+
+#header .model-btn {
+  position: absolute !important;
+  right: 16px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 32px !important;
+  height: 32px !important;
+  background: var(--meme-bg) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: var(--meme-transition) !important;
+}
+
+#header .model-btn:hover {
+  background: var(--meme-blue-light) !important;
+  color: var(--meme-blue) !important;
+}
+
+/* ============================================
+   导航栏 - 不变
+   ============================================ */
+#nav {
+  background: var(--meme-card) !important;
+  border-bottom: 1px solid var(--meme-border) !important;
+}
+
+#nav .main-nav {
+  display: flex !important;
+  gap: 4px !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#nav .nav-link {
+  color: var(--meme-secondary) !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  padding: 12px 16px !important;
+  border-radius: 8px !important;
+  text-decoration: none !important;
+  transition: var(--meme-transition) !important;
+}
+
+#nav .nav-link:hover {
+  color: var(--meme-primary) !important;
+  background: var(--meme-bg) !important;
+}
+
+#nav .nav-link.current {
+  color: var(--meme-blue) !important;
+  font-weight: 700 !important;
+  background: var(--meme-blue-light) !important;
+}
+
+/* ============================================
+   主内容区 - 不变
+   ============================================ */
+main.main { padding-top: 16px !important; }
+
+.post-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+/* ============================================
+   文章卡片 - 不变
+   ============================================ */
+.post-item {
+  background: var(--meme-card) !important;
+  border: 1px solid var(--meme-border) !important;
+  border-radius: var(--meme-radius) !important;
+  padding: 16px 20px !important;
+  margin: 0 !important;
+  transition: var(--meme-transition) !important;
+}
+
+.post-item:hover {
+  box-shadow: var(--meme-shadow-hover) !important;
+  transform: translateY(-1px) !important;
+}
+
+.post-item .thumb {
+  padding: 0 !important;
+}
+
+.post-item .thumb img,
+.post-item .thumb a img {
+  width: 56px !important;
+  height: 56px !important;
+  border-radius: var(--meme-radius-sm) !important;
+  object-fit: cover !important;
+  border: 1px solid var(--meme-border) !important;
+  transition: var(--meme-transition) !important;
+}
+
+.post-item:hover .thumb img {
+  transform: scale(1.05) !important;
+}
+
+/* 标签 - 不变 */
+.post-tag { margin-bottom: 6px !important; }
+
+.post-tag a {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 3px 10px !important;
+  border-radius: 6px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  transition: var(--meme-transition) !important;
+}
+
+.post-tag a:hover { opacity: 0.8 !important; }
+
+.post-tag a[href*="冷新闻"] { background: var(--meme-blue-light) !important; color: var(--meme-blue) !important; }
+.post-tag a[href*="maga"], .post-tag a[href*="MAGA"] { background: var(--meme-red-light) !important; color: var(--meme-red) !important; }
+.post-tag a[href*="人工智能"] { background: rgba(114,46,209,0.1) !important; color: var(--meme-purple) !important; }
+.post-tag a[href*="心理学"] { background: rgba(235,47,150,0.1) !important; color: var(--meme-pink) !important; }
+.post-tag a[href*="健康"], .post-tag a[href*="医学"] { background: rgba(82,196,26,0.1) !important; color: var(--meme-green) !important; }
+.post-tag a[href*="社会学"] { background: rgba(250,140,22,0.1) !important; color: var(--meme-orange) !important; }
+.post-tag a[href*="高科技"] { background: rgba(114,46,209,0.1) !important; color: var(--meme-purple) !important; }
+.post-tag a[href*="天文"] { background: var(--meme-blue-light) !important; color: var(--meme-blue) !important; }
+.post-tag a[href*="减肥"] { background: rgba(82,196,26,0.1) !important; color: var(--meme-green) !important; }
+.post-tag a[href*="无厘头"] { background: rgba(250,140,22,0.1) !important; color: var(--meme-orange) !important; }
+.post-tag a[href*="小贴士"] { background: rgba(114,46,209,0.1) !important; color: var(--meme-purple) !important; }
+.post-tag a[href*="正能量"] { background: rgba(82,196,26,0.1) !important; color: var(--meme-green) !important; }
+.post-tag a[href*="走进科学"] { background: rgba(235,47,150,0.1) !important; color: var(--meme-pink) !important; }
+
+/* 标题 - 不变 */
+.post-title {
+  margin: 0 0 8px 0 !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  line-height: 1.5 !important;
+}
+
+.post-title a {
+  color: var(--meme-primary) !important;
+  text-decoration: none !important;
+  transition: var(--meme-transition) !important;
+}
+
+.post-title a:hover { color: var(--meme-blue) !important; }
+
+/* 摘要 - 不变 */
+.post-excerpt {
+  color: var(--meme-secondary) !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 12px !important;
+}
+
+/* ============================================
+   功能按钮区域 - 只改这里！
+   关键：不拦截点击，让事件穿透到子元素
+   ============================================ */
+
+/* 功能按钮容器 */
+.comment-func {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-around !important;
+  margin-top: 12px !important;
+  padding-top: 12px !important;
+  border-top: 1px solid var(--meme-border) !important;
+  gap: 4px !important;
+}
+
+/* 按钮组 - 关键修改：pointer-events 不拦截 */
+.comment-func .button-group {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  padding: 8px 20px !important;
+  border-radius: 8px !important;
+  color: var(--meme-tertiary) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  transition: var(--meme-transition) !important;
+  background: transparent !important;
+  /* 关键：不设置 cursor: pointer，不拦截点击事件 */
+  /* 让内部的 OO/XX 保持原有点击行为 */
+}
+
+/* 悬停效果 - 只改视觉 */
+.comment-func .button-group:hover {
+  background: var(--meme-bg) !important;
+}
+
+/* OO 点赞按钮 - 悬停变红 */
+.comment-func .button-group:has(.oo):hover {
+  color: var(--meme-red) !important;
+  background: var(--meme-red-light) !important;
+}
+
+.comment-func .oo {
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  cursor: pointer !important; /* 保持原有可点击 */
+}
+
+.comment-func .oo_number {
+  font-size: 13px !important;
+  color: inherit !important;
+  cursor: pointer !important; /* 保持原有可点击 */
+}
+
+/* XX 点踩按钮 - 悬停变蓝 */
+.comment-func .button-group:has(.xx):hover {
+  color: var(--meme-blue) !important;
+  background: var(--meme-blue-light) !important;
+}
+
+.comment-func .xx {
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  cursor: pointer !important; /* 保持原有可点击 */
+}
+
+.comment-func .xx_number {
+  font-size: 13px !important;
+  color: inherit !important;
+  cursor: pointer !important; /* 保持原有可点击 */
+}
+
+/* 评论按钮 - 悬停变绿 */
+.comment-func .button-group:has(.bi-chat-left):hover {
+  color: var(--meme-green) !important;
+  background: rgba(82,196,26,0.1) !important;
+}
+
+.comment-func .bi-chat-left {
+  font-size: 16px !important;
+  cursor: pointer !important; /* 保持原有可点击 */
+}
+
+.comment-func .comment-count {
+  font-size: 13px !important;
+  color: inherit !important;
+  cursor: pointer !important; /* 保持原有可点击 */
+}
+
+/* ============================================
+   广告 - 完全不动，不修改任何广告样式
+   ============================================ */
+/* 不添加任何 .adsbygoogle 或广告相关的样式覆盖 */
+
+/* ============================================
+   分页 - 不变
+   ============================================ */
+.page-navi {
+  margin: 24px 0 !important;
+  text-align: center !important;
+}
+
+.page-navi a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 12px 32px !important;
+  background: var(--meme-blue) !important;
+  color: white !important;
+  border-radius: 9999px !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  text-decoration: none !important;
+  transition: var(--meme-transition) !important;
+}
+
+.page-navi a:hover {
+  background: #40a9ff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(24,144,255,0.3) !important;
+}
+
+.page-navi-btn .nav-prev a,
+.page-navi-btn .nav-next a {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  background: var(--meme-card) !important;
+  border: 1px solid var(--meme-border) !important;
+  color: var(--meme-primary) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 18px !important;
+  text-decoration: none !important;
+  transition: var(--meme-transition) !important;
+  box-shadow: var(--meme-shadow) !important;
+}
+
+.page-navi-btn .nav-prev a:hover,
+.page-navi-btn .nav-next a:hover {
+  background: var(--meme-blue) !important;
+  color: white !important;
+  border-color: var(--meme-blue) !important;
+}
+
+/* ============================================
+   侧边栏 - 不变
+   ============================================ */
+.sidebar {
+  padding-top: 16px !important;
+}
+
+.sidebar .row {
+  background: var(--meme-card) !important;
+  border: 1px solid var(--meme-border) !important;
+  border-radius: var(--meme-radius) !important;
+  padding: 20px !important;
+  margin-bottom: 12px !important;
+  box-shadow: var(--meme-shadow) !important;
+  transition: var(--meme-transition) !important;
+}
+
+.sidebar .row:hover {
+  box-shadow: var(--meme-shadow-hover) !important;
+}
+
+.sidebar .nav-header,
+.sidebar h3 {
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  color: var(--meme-primary) !important;
+  margin-bottom: 16px !important;
+  padding-bottom: 12px !important;
+  border-bottom: 1px solid var(--meme-border) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.sidebar .text ul,
+.sidebar ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.sidebar .text ul li,
+.sidebar ul li {
+  padding: 10px 0 !important;
+  border-bottom: 1px solid var(--meme-border) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.sidebar .text ul li:last-child,
+.sidebar ul li:last-child {
+  border-bottom: none !important;
+}
+
+.sidebar .text ul li::before,
+.sidebar ul li::before {
+  content: "•" !important;
+  color: var(--meme-blue) !important;
+  font-weight: bold !important;
+  font-size: 16px !important;
+}
+
+.sidebar .text a,
+.sidebar a {
+  color: var(--meme-secondary) !important;
+  text-decoration: none !important;
+  font-size: 14px !important;
+  transition: var(--meme-transition) !important;
+  display: block !important;
+  flex: 1 !important;
+}
+
+.sidebar .text a:hover,
+.sidebar a:hover {
+  color: var(--meme-blue) !important;
+}
+
+/* 搜索框 */
+.search-form { margin-bottom: 0 !important; }
+
+.search-form input {
+  width: 100% !important;
+  padding: 12px 16px !important;
+  border: 1px solid var(--meme-border) !important;
+  border-radius: var(--meme-radius-sm) !important;
+  background: var(--meme-bg) !important;
+  color: var(--meme-primary) !important;
+  font-size: 14px !important;
+  outline: none !important;
+  transition: var(--meme-transition) !important;
+}
+
+.search-form input:focus {
+  border-color: var(--meme-blue) !important;
+  box-shadow: 0 0 0 3px rgba(24,144,255,0.1) !important;
+}
+
+.search-form input::placeholder {
+  color: var(--meme-tertiary) !important;
+}
+
+/* 热榜标签 */
+.hot-tabs {
+  display: flex !important;
+  gap: 0 !important;
+  border-bottom: 1px solid var(--meme-border) !important;
+  margin-bottom: 16px !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.hot-tabs li {
+  padding: 10px 14px !important;
+  cursor: pointer !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--meme-secondary) !important;
+  border-bottom: 2px solid transparent !important;
+  transition: var(--meme-transition) !important;
+}
+
+.hot-tabs li:hover {
+  color: var(--meme-primary) !important;
+  background: var(--meme-bg) !important;
+  border-radius: 6px 6px 0 0 !important;
+}
+
+.hot-tabs li.current {
+  color: var(--meme-blue) !important;
+  border-bottom-color: var(--meme-blue) !important;
+  font-weight: 600 !important;
+}
+
+/* 热榜内容 */
+.hot-item {
+  padding: 12px 0 !important;
+  border-bottom: 1px solid var(--meme-border) !important;
+}
+
+.hot-item:last-child { border-bottom: none !important; }
+
+.hot-title {
+  font-size: 13px !important;
+  color: var(--meme-secondary) !important;
+  margin-bottom: 6px !important;
+}
+
+.hot-title a {
+  color: var(--meme-primary) !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+}
+
+.hot-title a:hover { color: var(--meme-blue) !important; }
+
+.hot-content img {
+  border-radius: var(--meme-radius-sm) !important;
+  max-height: 180px !important;
+  object-fit: cover !important;
+  width: 100% !important;
+}
+
+.hot-vote {
+  margin-top: 8px !important;
+  font-size: 12px !important;
+  display: flex !important;
+  gap: 12px !important;
+}
+
+.hot-vote .vote-btn {
+  color: var(--meme-tertiary) !important;
+  text-decoration: none !important;
+  transition: var(--meme-transition) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+.hot-vote .vote-btn.like:hover { color: var(--meme-red) !important; }
+.hot-vote .vote-btn.unlike:hover { color: var(--meme-blue) !important; }
+
+/* 鱼塘列表 */
+.bbs-list li { padding: 8px 0 !important; }
+
+.bbs-list li a {
+  color: var(--meme-secondary) !important;
+  font-size: 13px !important;
+  text-decoration: none !important;
+  transition: var(--meme-transition) !important;
+  display: block !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.bbs-list li a:hover { color: var(--meme-blue) !important; }
+
+/* 侧边栏图片 */
+.sidebar img {
+  border-radius: var(--meme-radius-sm) !important;
+  transition: var(--meme-transition) !important;
+}
+
+.sidebar img:hover { transform: scale(1.02) !important; }
+
+/* ============================================
+   Footer - 不变
+   ============================================ */
+#footer {
+  background: var(--meme-card) !important;
+  border-top: 1px solid var(--meme-border) !important;
+  margin-top: 24px !important;
+  padding: 32px 0 !important;
+}
+
+#footer a {
+  color: var(--meme-secondary) !important;
+  text-decoration: none !important;
+  transition: var(--meme-transition) !important;
+}
+
+#footer a:hover { color: var(--meme-blue) !important; }
+
+/* ============================================
+   回到顶部 - 不变
+   ============================================ */
+#nav_top {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  background: var(--meme-blue) !important;
+  color: white !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 16px !important;
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(24,144,255,0.3) !important;
+  transition: var(--meme-transition) !important;
+  right: 20px !important;
+  bottom: 20px !important;
+}
+
+#nav_top:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(24,144,255,0.4) !important;
+}
+
+/* ============================================
+   滚动条 - 不变
+   ============================================ */
+::-webkit-scrollbar { width: 6px !important; }
+::-webkit-scrollbar-track { background: transparent !important; }
+::-webkit-scrollbar-thumb { background: var(--meme-border) !important; border-radius: 3px !important; }
+::-webkit-scrollbar-thumb:hover { background: var(--meme-tertiary) !important; }
+
+/* ============================================
+   动画 - 不变
+   ============================================ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.post-item {
+  animation: fadeInUp 0.35s ease forwards !important;
+}
+
+.post-item:nth-child(1) { animation-delay: 0.02s !important; }
+.post-item:nth-child(2) { animation-delay: 0.04s !important; }
+.post-item:nth-child(3) { animation-delay: 0.06s !important; }
+.post-item:nth-child(4) { animation-delay: 0.08s !important; }
+.post-item:nth-child(5) { animation-delay: 0.10s !important; }
+.post-item:nth-child(6) { animation-delay: 0.12s !important; }
+.post-item:nth-child(7) { animation-delay: 0.14s !important; }
+.post-item:nth-child(8) { animation-delay: 0.16s !important; }
+
+/* ============================================
+   响应式 - 不变
+   ============================================ */
+@media (max-width: 768px) {
+  .post-item {
+    padding: 12px 16px !important;
+    border-radius: 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+  }
+  .post-item .thumb img {
+    width: 48px !important;
+    height: 48px !important;
+  }
+  .sidebar { display: none !important; }
+  main.main { width: 100% !important; padding: 0 !important; }
+  .comment-func .button-group {
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+  }
+}
+
+/* ============================================
+   阅读进度条 - 不变
+   ============================================ */
+#reading-progress {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, var(--meme-blue), var(--meme-purple)) !important;
+  z-index: 9999 !important;
+  transition: width 0.1s linear !important;
+}
