@@ -673,3 +673,170 @@ main.main { padding-top: 16px !important; }
   z-index: 9999 !important;
   transition: width 0.1s linear !important;
 }
+
+/* ============================================
+   comment-row 卡片布局 + 圆角
+   ============================================ */
+
+.comment-row {
+  background: var(--meme-card) !important;
+  border: 1px solid var(--meme-border) !important;
+  border-radius: var(--meme-radius) !important;
+  padding: 16px 20px !important;
+  margin-bottom: 12px !important;
+  transition: var(--meme-transition) !important;
+  box-shadow: var(--meme-shadow) !important;
+}
+
+.comment-row:hover {
+  box-shadow: var(--meme-shadow-hover) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* 头像 */
+.comment-row .avatar-img img {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  border: 2px solid var(--meme-border) !important;
+  transition: var(--meme-transition) !important;
+}
+
+.comment-row:hover .avatar-img img {
+  transform: scale(1.05) !important;
+  border-color: var(--meme-blue) !important;
+}
+
+/* 作者名 */
+.comment-row .author-anonymous {
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  color: var(--meme-primary) !important;
+}
+
+/* 时间 */
+.comment-row .create-time {
+  font-size: 12px !important;
+  color: var(--meme-tertiary) !important;
+}
+
+/* 评论编号 */
+.comment-row .comment-num {
+  font-size: 12px !important;
+  color: var(--meme-tertiary) !important;
+  text-decoration: none !important;
+  transition: var(--meme-transition) !important;
+}
+
+.comment-row .comment-num:hover {
+  color: var(--meme-blue) !important;
+}
+
+/* 菜单按钮 */
+.comment-row .comment-menu-btn {
+  color: var(--meme-tertiary) !important;
+  cursor: pointer !important;
+  padding: 4px !important;
+  border-radius: 4px !important;
+  transition: var(--meme-transition) !important;
+}
+
+.comment-row .comment-menu-btn:hover {
+  background: var(--meme-bg) !important;
+  color: var(--meme-primary) !important;
+}
+
+/* 评论内容 */
+.comment-row .comment-content {
+  color: var(--meme-primary) !important;
+  font-size: 15px !important;
+  line-height: 1.7 !important;
+  margin: 12px 0 !important;
+}
+
+/* 功能按钮区域 */
+.comment-row .comment-func {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-around !important;
+  margin-top: 12px !important;
+  padding-top: 12px !important;
+  border-top: 1px solid var(--meme-border) !important;
+  gap: 4px !important;
+}
+
+.comment-row .comment-func .button-group {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  padding: 8px 20px !important;
+  border-radius: 8px !important;
+  color: var(--meme-tertiary) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  transition: var(--meme-transition) !important;
+  background: transparent !important;
+}
+
+.comment-row .comment-func .button-group:hover {
+  background: var(--meme-bg) !important;
+}
+
+/* OO 点赞 */
+.comment-row .comment-func .button-group:has(.oo):hover {
+  color: var(--meme-red) !important;
+  background: var(--meme-red-light) !important;
+}
+
+.comment-row .comment-func .oo {
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  cursor: pointer !important;
+}
+
+.comment-row .comment-func .oo_number {
+  font-size: 13px !important;
+  color: inherit !important;
+  cursor: pointer !important;
+}
+
+/* XX 点踩 */
+.comment-row .comment-func .button-group:has(.xx):hover {
+  color: var(--meme-blue) !important;
+  background: var(--meme-blue-light) !important;
+}
+
+.comment-row .comment-func .xx {
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  cursor: pointer !important;
+}
+
+.comment-row .comment-func .xx_number {
+  font-size: 13px !important;
+  color: inherit !important;
+  cursor: pointer !important;
+}
+
+/* 评论 */
+.comment-row .comment-func .button-group:has(.bi-chat-left):hover {
+  color: var(--meme-green) !important;
+  background: rgba(82,196,26,0.1) !important;
+}
+
+.comment-row .comment-func .bi-chat-left {
+  font-size: 16px !important;
+  cursor: pointer !important;
+}
+
+.comment-row .comment-func .comment-count {
+  font-size: 13px !important;
+  color: inherit !important;
+  cursor: pointer !important;
+}
+
+/* 动画 */
+.comment-row {
+  animation: fadeInUp 0.35s ease forwards !important;
+}
